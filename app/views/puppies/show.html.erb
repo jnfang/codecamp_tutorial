@@ -1,0 +1,12 @@
+<h1> Puppy owned by <%= @puppy.owner %></h1>
+<ul>
+	<% @puppy.suggestions.each do |suggestion| %>
+		<li> <%= suggestion.name %> </li>
+	<% end %>
+</ul>
+
+<%= form_for [@puppy,@puppy.suggestions.build] do |f| %>
+	<p> Suggestion: <%=f.text_field :name, required:true %> <%=f.submit%> </p>
+<% end %>
+
+<p><%= link_to "Edit", edit_puppy_url(@puppy)%></p>

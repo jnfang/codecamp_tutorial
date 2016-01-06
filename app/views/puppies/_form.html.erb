@@ -1,0 +1,18 @@
+<!-- f is the form definition proxy for the form  -->
+<% unless @puppy.errors.empty? %>
+<h2>Errors</h2>
+	<ul>
+		<% @puppy.errors.full_messages.each do |error| %>
+			<li><%=error %></li>
+		<% end %>
+	</ul>
+<% end %>
+
+<%= form_for @puppy do |f|%>
+	<p> Owner name: <%= f.text_field :owner %> </p>
+	<p> Color: <%= f.text_field :color %> </p>
+	<p> Description </p>
+	<%= f.text_area :description %> 
+	<p><%= f.submit %></p>
+
+<% end %>

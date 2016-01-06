@@ -1,0 +1,14 @@
+<h1>Puppies</h1>
+	<ul>
+		<% @puppies.each do |puppy| %>
+			<li>
+				Puppy owned by <%= puppy.owner%>
+				<% if puppy.color? %>
+					(color <%= puppy.color%>)
+				<%end%>
+				<%= link_to "More info", puppy_url(puppy) %>
+			</li>
+		<% end %>
+	</ul>
+
+	<p><%= link_to "Add a new puppy", new_puppy_url%></p>
